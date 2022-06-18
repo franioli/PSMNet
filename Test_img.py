@@ -69,7 +69,11 @@ def test(imgL,imgR):
             disp = model(imgL,imgR)
 
         disp = torch.squeeze(disp)
-        pred_disp = disp.data.cpu().numpy()
+
+        if args.cuda:
+            pred_disp = disp.data.cpu().numpy()
+        else:
+            pred_disp = disp.data
 
         return pred_disp
 
