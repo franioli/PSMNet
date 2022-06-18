@@ -73,7 +73,7 @@ def test(imgL,imgR):
         if args.cuda:
             pred_disp = disp.data.cpu().numpy()
         else:
-            pred_disp = disp.data
+            pred_disp = disp.data.numpy()
 
         return pred_disp
 
